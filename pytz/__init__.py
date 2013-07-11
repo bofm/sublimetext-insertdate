@@ -36,12 +36,12 @@ try:
 except ImportError:
     resource_stream = None
 
-from pytz.exceptions import AmbiguousTimeError
-from pytz.exceptions import InvalidTimeError
-from pytz.exceptions import NonExistentTimeError
-from pytz.exceptions import UnknownTimeZoneError
-from pytz.tzinfo import unpickler
-from pytz.tzfile import build_tzinfo
+from .exceptions import AmbiguousTimeError
+from .exceptions import InvalidTimeError
+from .exceptions import NonExistentTimeError
+from .exceptions import UnknownTimeZoneError
+from .tzinfo import unpickler
+from .tzfile import build_tzinfo
 
 
 try:

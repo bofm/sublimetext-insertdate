@@ -1,7 +1,13 @@
 import sublime
 import sublime_plugin
 from functools import partial
-from format_date import FormatDate
+from insertdate.format_date import FormatDate
+
+
+try:
+    basestring
+except NameError:  # Python 3.x
+    basestring = str
 
 
 class InsertDateCommand(sublime_plugin.TextCommand, FormatDate):
@@ -35,7 +41,7 @@ class InsertDateCommand(sublime_plugin.TextCommand, FormatDate):
 
         if type(text) == str:
             # print(text)
-            text = text.decode('utf-8')
+            text = text
 
         for r in self.view.sel():
             if r.empty():

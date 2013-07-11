@@ -7,8 +7,8 @@ try:
 except NameError:
     from sets import Set as set
 
-import pytz
-from pytz.exceptions import AmbiguousTimeError, NonExistentTimeError
+import insertdate.pytz
+from .exceptions import AmbiguousTimeError, NonExistentTimeError
 
 __all__ = []
 
@@ -114,7 +114,7 @@ class StaticTzInfo(BaseTzInfo):
         This is normally a no-op, as StaticTzInfo timezones never have
         ambiguous cases to correct:
 
-        >>> from pytz import timezone
+        >>> from insertdate.pytz import timezone
         >>> gmt = timezone('GMT')
         >>> isinstance(gmt, StaticTzInfo)
         True
@@ -195,7 +195,7 @@ class DstTzInfo(BaseTzInfo):
 
         To test, first we need to do some setup
 
-        >>> from pytz import timezone
+        >>> from insertdate.pytz import timezone
         >>> utc = timezone('UTC')
         >>> eastern = timezone('US/Eastern')
         >>> fmt = '%Y-%m-%d %H:%M:%S %Z (%z)'
@@ -250,7 +250,7 @@ class DstTzInfo(BaseTzInfo):
         is_dst is used to determine the correct timezone in the ambigous
         period at the end of daylight savings time.
 
-        >>> from pytz import timezone
+        >>> from insertdate.pytz import timezone
         >>> fmt = '%Y-%m-%d %H:%M:%S %Z (%z)'
         >>> amdam = timezone('Europe/Amsterdam')
         >>> dt  = datetime(2004, 10, 31, 2, 0, 0)
@@ -383,7 +383,7 @@ class DstTzInfo(BaseTzInfo):
         The is_dst parameter may be used to remove ambiguity during DST
         transitions.
 
-        >>> from pytz import timezone
+        >>> from insertdate.pytz import timezone
         >>> tz = timezone('America/St_Johns')
         >>> ambiguous = datetime(2009, 10, 31, 23, 30)
 
@@ -414,7 +414,7 @@ class DstTzInfo(BaseTzInfo):
         The is_dst parameter may be used to remove ambiguity during DST
         transitions.
 
-        >>> from pytz import timezone
+        >>> from insertdate.pytz import timezone
         >>> tz = timezone('America/St_Johns')
 
         >>> normal = datetime(2009, 9, 1)
@@ -453,7 +453,7 @@ class DstTzInfo(BaseTzInfo):
         The is_dst parameter may be used to remove ambiguity during DST
         transitions.
 
-        >>> from pytz import timezone
+        >>> from insertdate.pytz import timezone
         >>> tz = timezone('America/St_Johns')
 
         >>> normal = datetime(2009, 9, 1)

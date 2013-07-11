@@ -4,8 +4,8 @@ import locale
 locale.setlocale(locale.LC_TIME, '')
 
 from datetime import datetime, timedelta, tzinfo
-import pytz
-from pytz.exceptions import *
+import insertdate.pytz
+from insertdate.pytz.exceptions import *
 
 try:
     basestring
